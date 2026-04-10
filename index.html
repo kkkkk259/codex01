@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Atelier</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="hero-panel">
+        <p class="eyebrow">Daily Focus</p>
+        <h1>Todo Atelier</h1>
+        <p class="hero-copy">
+          A calm, polished workspace for planning the day. Add, edit, delete,
+          and keep every task saved in local storage.
+        </p>
+
+        <div class="stats-card">
+          <div>
+            <span class="stats-label">Total</span>
+            <strong id="totalCount">0</strong>
+          </div>
+          <div>
+            <span class="stats-label">Done</span>
+            <strong id="doneCount">0</strong>
+          </div>
+          <div>
+            <span class="stats-label">Pending</span>
+            <strong id="pendingCount">0</strong>
+          </div>
+        </div>
+      </aside>
+
+      <main class="app-panel">
+        <section class="composer-card">
+          <div class="section-head">
+            <p class="section-kicker">Task Composer</p>
+            <h2>Add a new task</h2>
+          </div>
+
+          <form id="todoForm" class="todo-form">
+            <label class="sr-only" for="todoInput">Enter a task</label>
+            <input
+              id="todoInput"
+              name="todo"
+              type="text"
+              maxlength="120"
+              placeholder="For example: finish the landing page"
+              autocomplete="off"
+            />
+            <button type="submit">Add Task</button>
+          </form>
+        </section>
+
+        <section class="list-card">
+          <div class="section-head list-head">
+            <div>
+              <p class="section-kicker">Task Board</p>
+              <h2>Task list</h2>
+            </div>
+            <p id="listHint" class="list-hint">No tasks yet. Add the first one.</p>
+          </div>
+
+          <ul id="todoList" class="todo-list" aria-live="polite"></ul>
+        </section>
+      </main>
+    </div>
+
+    <template id="todoItemTemplate">
+      <li class="todo-item">
+        <label class="check-wrap">
+          <input class="todo-toggle" type="checkbox" />
+          <span class="check-mark"></span>
+        </label>
+
+        <div class="todo-content">
+          <p class="todo-text"></p>
+          <input class="todo-edit-input" type="text" maxlength="120" />
+        </div>
+
+        <div class="todo-actions">
+          <button class="ghost-button edit-button" type="button">Edit</button>
+          <button class="ghost-button save-button" type="button">Save</button>
+          <button class="danger-button delete-button" type="button">Delete</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
